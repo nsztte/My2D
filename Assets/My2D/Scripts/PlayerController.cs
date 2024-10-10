@@ -8,30 +8,30 @@ namespace My2D
         #region Variables
         private Rigidbody2D rb2D;
 
-        //ÇÃ·¹ÀÌ¾î °È±â ¼Óµµ
+        //í”Œë ˆì´ì–´ ê±·ê¸° ì†ë„
         [SerializeField] private float walkSpeed = 4f;
 
-        //ÇÃ·¹ÀÌ¾î ÀÌµ¿°ú °ü·ÃµÈ ÀÔ·Â°ª
+        //í”Œë ˆì´ì–´ ì´ë™ê³¼ ê´€ë ¨ëœ ì…ë ¥ê°’
         private Vector2 inputMove;
         #endregion
 
         private void Awake()
         {
-            //ÂüÁ¶
+            //ì°¸ì¡°
             rb2D = this.GetComponent<Rigidbody2D>();
             //rb2D.velocity
         }
 
         private void FixedUpdate()
         {
-            //ÇÃ·¹ÀÌ¾î ÁÂ¿ì ÀÌµ¿
+            //í”Œë ˆì´ì–´ ì¢Œìš° ì´ë™
             rb2D.velocity = new Vector2(inputMove.x * walkSpeed, rb2D.velocity.y);
         }
 
         public void OnMove(InputAction.CallbackContext context)
         {
             inputMove = context.ReadValue<Vector2>();
-            Debug.Log("inputMove: " + inputMove);
+            //Debug.Log("inputMove: " + inputMove); 
         }
     }
 }
